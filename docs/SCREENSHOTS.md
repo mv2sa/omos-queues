@@ -47,3 +47,29 @@ Copy one queue and confirm the paste into another. Open **Review changes** to se
 ![A queue is copied and pasted into another queue, the diff opens, and Back to editing returns to the draft without saving.](screenshots/copy-and-review.gif)
 
 </details>
+
+## Install the ZIP
+
+These demos show a locally built ZIP being installed in an isolated OpenChamber instance with synthetic data.
+
+### Upload the ZIP
+
+Go to **Settings → Extensions → Add extension**. Use **Browse ZIP archive** to upload `dist/omos-queues-<version>.zip`.
+
+<details>
+<summary>Show the ZIP upload GIF</summary>
+
+![OpenChamber's dark Extensions settings show Add extension, then list OMOS queues after the ZIP uploads.](screenshots/install-zip.gif)
+
+</details>
+
+### Approve the service and open the extension
+
+Choose **Allow and enable** for the local service only if you trust the code, then open **OMOS queues**.
+
+<details>
+<summary>Show the service approval and first launch GIF</summary>
+
+![The local service capability is explicitly approved in OpenChamber, then the installed OMOS queues editor opens.](screenshots/open-installed-extension.gif)
+
+</details>

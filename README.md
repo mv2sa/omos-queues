@@ -2,31 +2,32 @@
 
 An unofficial [OpenChamber](https://github.com/openchamber/openchamber) extension for editing model fallback queues in a global [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim) configuration.
 
+Licensed under the [MIT License](LICENSE).
+
 - Pick a model from search, type a `provider/model` ID, or use a favorite. Set per-position variants and reorder positions manually.
 - Copy, paste or reset one queue without changing the saved file. Recover a stored draft as a copy.
 - Review the diff before saving. A confirmed save checks for concurrent changes and retains a backup next to the file.
-- Stage a first Orchestrator default in a supported existing preset or edit [selections and overrides for installed marketplace agents](docs/MARKETPLACE-CONTRACT.md). Native OpenCode Build is not managed here.
-
-There is no AI optimizer, automatic save, package installation from the editor, or OpenCode reload. The model catalog comes from `opencode models`; the extension does not ask a model to generate a response.
+- Stage a first Orchestrator default in a supported existing preset or edit [selections and overrides for installed marketplace agents](docs/MARKETPLACE-CONTRACT.md).
 
 ![Dark desktop queue editor showing model positions with variant and reorder controls.](docs/screenshots/queue-editor-desktop.png)
 
 *Queue editor on desktop · Dark mode.* See the [desktop and phone screenshots](docs/SCREENSHOTS.md) or [watch two short feature demos](docs/SCREENSHOTS.md#feature-demos).
 
-Screenshots and GIFs are not included in the local install ZIP. If you're reading from the ZIP, open the [gallery on GitHub](https://github.com/mv2sa/omos-queues/blob/main/docs/SCREENSHOTS.md).
-
 ## Build and install
 
-You need OpenChamber 2.7.1 or later with local extension services allowed, OpenCode, and an existing global OMOS JSONC or JSON file. The build and tests use Node 22.22.1 and Bun 1.3.14; use a Node runtime supported by your installed OpenChamber to run the host itself.
+You need OpenChamber 2.7.1 or later with local extension services allowed, OpenCode, and an existing global OMOS JSONC or JSON file. Build with Node 22.22.1 and Bun 1.3.14. Run OpenChamber itself with a Node version it supports.
 
-Clone this repository or download its source, then run in that directory:
+1. Clone this repository or download its source, then run this in the source directory:
 
-```sh
-bun install --frozen-lockfile
-bun run check
-```
+   ```sh
+   bun run build:zip
+   ```
 
-The check builds and tests the extension and produces `dist/omos-queues-<version>.zip`. In OpenChamber, go to **Settings → Extensions**, upload the local ZIP, and approve the extension's service capability if you trust the code and intend to use it. OpenChamber does not build a cloned source repository. This repo has no published install packages or release builds; do not install `main` as a Git extension.
+   This installs pinned dependencies, builds the extension, and packages the ZIP locally.
+2. In OpenChamber, open **Settings → Extensions → Add extension**. Use **Browse ZIP archive** to upload `dist/omos-queues-<version>.zip`.
+3. If you trust the code, choose **Allow and enable** for the local service. Then open **OMOS queues**.
+
+[Watch the ZIP upload and first launch](docs/SCREENSHOTS.md#install-the-zip). This repository provides source only; you can't install `main` directly as a Git extension.
 
 Open **OMOS queues → Settings** to confirm the global config path and OpenCode executable. If model enumeration needs a particular server working directory or OpenCode configuration directory, set those explicitly. A global preset default is not necessarily the effective model of a running session; project configuration can override it.
 
@@ -38,8 +39,8 @@ Search, Copy, Paste and Reset operate on the draft. **Review changes** opens the
 
 Favorites are local to the extension on the connected instance. You can optionally preview a read-only import from your OpenChamber profile; refreshing that preview does not replace stars. Marketplace configuration is likewise optional and does not install agents.
 
-## Contributing and license
+## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for running checks and writing a useful issue or pull request. The [technical contract](CONTRACT.md) describes the write boundaries. Browser emulation is not a physical-device test.
 
-See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for bundled dependency notices.

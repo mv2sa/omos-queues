@@ -93,6 +93,7 @@ test('the package.json version is canonical: a bump is not identity drift', asyn
 test('scripts are the command source of truth for build, tests, SDK and packaging', async () => {
   const { scripts } = await readJson('package.json');
   assert.equal(scripts.build, 'bun run build:page && bun run build:service');
+  assert.equal(scripts['build:zip'], 'bun install --frozen-lockfile && bun run build && bun run package');
   assert.match(scripts['build:page'], /node_modules\/@openchamber\/sdk\/scripts\/bundle-guest\.ts src\/page\/main\.js page\/main\.js$/);
   assert.equal(scripts['build:service'], 'mkdir -p service && bun scripts/build-service.mjs');
   assert.equal(scripts.test,

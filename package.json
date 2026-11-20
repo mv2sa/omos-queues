@@ -36,6 +36,7 @@
     "build:page": "mkdir -p page && bun --no-install node_modules/@openchamber/sdk/scripts/bundle-guest.ts src/page/main.js page/main.js",
     "build:service": "mkdir -p service && bun scripts/build-service.mjs",
     "build": "bun run build:page && bun run build:service",
+    "build:zip": "bun install --frozen-lockfile && bun run build && bun run package",
     "check:syntax": "node scripts/check-syntax.mjs",
     "test": "node --test \"test/backend/*.test.mjs\" \"test/page/*.test.mjs\" \"test/packaging/*.test.mjs\"",
     "check:sdk": "bun --no-install node_modules/@openchamber/sdk/scripts/check-guest.ts .",
