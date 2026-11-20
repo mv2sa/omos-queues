@@ -9,6 +9,12 @@ An unofficial [OpenChamber](https://github.com/openchamber/openchamber) extensio
 
 There is no AI optimizer, automatic save, package installation from the editor, or OpenCode reload. The model catalog comes from `opencode models`; the extension does not ask a model to generate a response.
 
+![Dark desktop queue editor showing model positions with variant and reorder controls.](docs/screenshots/queue-editor-desktop.png)
+
+*Queue editor on desktop · Dark mode.* See the [desktop and phone screenshots](docs/SCREENSHOTS.md) or [watch two short feature demos](docs/SCREENSHOTS.md#feature-demos).
+
+Screenshots and GIFs are not included in the local install ZIP. If you're reading from the ZIP, open the [gallery on GitHub](https://github.com/mv2sa/omos-queues/blob/main/docs/SCREENSHOTS.md).
+
 ## Build and install
 
 You need OpenChamber 2.7.1 or later with local extension services allowed, OpenCode, and an existing global OMOS JSONC or JSON file. The build and tests use Node 22.22.1 and Bun 1.3.14; use a Node runtime supported by your installed OpenChamber to run the host itself.
