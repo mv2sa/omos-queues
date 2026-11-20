@@ -1,0 +1,49 @@
+{
+  "name": "omos-queues-extension",
+  "version": "0.3.1",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "OpenChamber extension for manually editing global OMOS model queues.",
+  "openchamber": {
+    "apiVersion": 1,
+    "engines": {
+      "openchamber": ">=2.7.1"
+    },
+    "contributes": {
+      "panel": {
+        "id": "omos-queues",
+        "name": "OMOS queues",
+        "icon": "stack"
+      },
+      "page": {
+        "entry": "page/index.html",
+        "title": "OMOS queues",
+        "mobile": true
+      },
+      "service": {
+        "entry": "service/main.js",
+        "runtime": "host",
+        "permissions": {
+          "exec": [
+            "opencode"
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build:page": "mkdir -p page && bun --no-install node_modules/@openchamber/sdk/scripts/bundle-guest.ts src/page/main.js page/main.js",
+    "build:service": "mkdir -p service && bun scripts/build-service.mjs",
+    "build": "bun run build:page && bun run build:service",
+    "check:syntax": "node scripts/check-syntax.mjs",
+    "test": "node --test \"test/backend/*.test.mjs\" \"test/page/*.test.mjs\" \"test/packaging/*.test.mjs\"",
+    "check:sdk": "bun --no-install node_modules/@openchamber/sdk/scripts/check-guest.ts .",
+    "package": "node scripts/package-extension.mjs",
+    "check": "bun run build && bun run check:syntax && bun run test && bun run check:sdk && bun run package"
+  },
+  "dependencies": {
+    "@openchamber/sdk": "2.7.1",
+    "jsonc-parser": "3.3.1"
+  }
+}

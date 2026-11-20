@@ -1,0 +1,20 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "omos-queues-extension",
+      "dependencies": {
+        "@openchamber/sdk": "2.7.1",
+        "jsonc-parser": "3.3.1",
+      },
+    },
+  },
+  "packages": {
+    "@openchamber/sdk": ["@openchamber/sdk@2.7.1", "", { "dependencies": { "zod": "^4.3.6" }, "bin": { "openchamber-guest-check": "scripts/check-guest.ts", "openchamber-guest-bundle": "scripts/bundle-guest.ts" } }, "sha512-TpIHXj1pwlU0Efhzpi218gtKV04MEc6LSaoXeynz+KnFb/zbEuUHJ5NU6lvAH74oSywiHxVqewJwLB5ZTSZiOQ=="],
+
+    "jsonc-parser": ["jsonc-parser@3.3.1", "", {}, "sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ=="],
+
+    "zod": ["zod@4.6.7", "", {}, "sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg=="],
+  }
+}

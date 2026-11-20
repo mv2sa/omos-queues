@@ -1,0 +1,11 @@
+node_modules/
+dist/
+page/main.js
+service/main.js
+.slim/deepwork/
+evidence/
+.env
+.env.*
+*.log
+*.bak.pre-ui-*
+.DS_Store
